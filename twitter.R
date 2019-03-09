@@ -1,10 +1,9 @@
 library(rtweet)
 library(dplyr)
 library(stringr)
+library(tidyverse)
 library(maps)
-remove.packages(c("ggplot2", "data.table"))
-install.packages('Rcpp', dependencies = TRUE)
-library(ggplot2)
+library(tidyr)
 
 create_token(
   app = "www.twitter.com",
@@ -20,16 +19,16 @@ search_query_more = "#cough OR #influeza OR #fever OR #vaccines OR #health OR #s
 search_query = "#flu OR # cough OR #H3N2 OR #fluseason OR #fightflu "
 even_more_query = "#swineflu OR #CDC OR #fatigue OR #sorethroat OR #headache OR #sneeze OR #flu2019"
 
-current_even_more <- search_tweets(
-  q= even_more_query, n = 10000, type="recent",include_rts= TRUE,
+lastday_even_more <- search_tweets(
+  q= search_query, n = 10000, type="recent",include_rts= TRUE,
   geocode = lookup_coords("usa")
 )
-extra_today <- search_tweets(
-  q= even_more_query, n = 10000, type="recent",include_rts= TRUE,
+extra_lastday <- search_tweets(
+  q= search_query_more, n = 10000, type="recent",include_rts= TRUE,
   geocode = lookup_coords("usa")
 )
-extra_past <- search_tweets(
-  q= even_more_query, n = 10000, type="recent", since = since, until = until, include_rts= TRUE,
+extra_lastdayt <- search_tweets(
+  q= even_more_query, n = 10000, type="recent", include_rts= TRUE,
   geocode = lookup_coords("usa")
 )
 past_more <- search_tweets(
@@ -37,10 +36,12 @@ past_more <- search_tweets(
   geocode = lookup_coords("usa")
 )
 
-save_as_csv(current_more, "current_more.csv" , prepend_ids = TRUE, na = "",
+lastday_all <- rbind(extra_lastday, extra_lastdayt, lastday_even_more)
+
+save_as_csv(lastday_all, "lastday_all.csv" , prepend_ids = TRUE, na = "",
             fileEncoding = "UTF-8")
 
-#all_tweet <- merge("all_tweet.csv", all in tweet_csv)
+all_tweet <- merge("all_tweet.csv", lastday_all)
 #===============================================
 #filter
 #===============================================
@@ -64,12 +65,7 @@ save_as_csv(filter_coordinate, "map_coordinate.csv" , prepend_ids = TRUE, na = "
 #===============================================
 
 usmap_data <- read.csv('map_coordinate.csv')
-
-
-
-
-
-
+coord <- data.frame(usmap_data$file.coords_coords)
 
 
 
