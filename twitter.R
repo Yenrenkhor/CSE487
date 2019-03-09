@@ -64,9 +64,26 @@ save_as_csv(filter_coordinate, "map_coordinate.csv" , prepend_ids = TRUE, na = "
 #mapping
 #===============================================
 
-usmap_data <- read.csv('map_coordinate.csv')
-coord <- data.frame(usmap_data$file.coords_coords)
+usmap_data <- read.csv('./part3_data.csv')
 
+# Get all states data
+all_states <- map_data("state")
 
+# data clean
+regionCount <- table(usmap_data$region)
+regionData <- data.frame(regionCount)
+colnames(regionData) <- c("region","freq")
+region <- tolower(regionData$region)
+lowerRegionFreq <- data.frame(region,regionData$freq)
 
+finalData <- merge(lowerRegionFreq,all_states,by="region")
+
+# Plot
+(usHeatMap <- ggplot(data = finalData) + 
+    geom_polygon(aes(x = long, y = lat, fill = regionData.freq, group = group)) + 
+    coord_fixed(1.3) + 
+    labs(title = "Tweets about flu",
+         x = "Longitude", y="Latitude"))
+
+usHeatMap + guides(fill=guide_legend(title="Tweets amount"))
 
