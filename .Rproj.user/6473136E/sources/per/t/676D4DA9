@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "134501666",
+    "hash" : "3540638114",
     "id" : "676D4DA9",
-    "lastKnownWriteTime" : 1552097698,
-    "last_content_update" : 1552097698014,
+    "lastKnownWriteTime" : 1552107007,
+    "last_content_update" : 1552107007804,
     "path" : "~/Desktop/GitHub/CSE487/twitter.R",
     "project_path" : "twitter.R",
     "properties" : {
-        "cursorPosition" : "47,18",
-        "scrollLine" : "42"
+        "cursorPosition" : "44,15",
+        "scrollLine" : "41"
     },
     "relative_order" : 1,
     "source_on_save" : false,
