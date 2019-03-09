@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1552097492284.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "339905658",
+    "id" : "49E879F9",
+    "lastKnownWriteTime" : 1551462897,
+    "last_content_update" : 1551462897,
+    "path" : "~/Desktop/487/part2/choongliLab1Part2.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "21,76",
+        "scrollLine" : "11"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
