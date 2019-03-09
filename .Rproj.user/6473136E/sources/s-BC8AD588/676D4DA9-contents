@@ -55,8 +55,6 @@ filter_rt <- filter_duplicate[grep("RT", filter_duplicate$file.text, invert = TR
 #filter coordinate
 filter_coordinate <- dplyr::filter(filter_rt, filter_rt$file.coords_coords != 'c(Na, Na)')
 
-
-
 save_as_csv(filter_coordinate, "map_coordinate.csv" , prepend_ids = TRUE, na = "",
             fileEncoding = "UTF-8")
 
@@ -64,7 +62,7 @@ save_as_csv(filter_coordinate, "map_coordinate.csv" , prepend_ids = TRUE, na = "
 #mapping
 #===============================================
 
-usmap_data <- read.csv('./part3_data.csv')
+usmap_data <- read.csv('./finally.csv')
 
 # Get all states data
 all_states <- map_data("state")

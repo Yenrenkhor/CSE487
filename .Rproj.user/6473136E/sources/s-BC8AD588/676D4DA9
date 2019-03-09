@@ -2,18 +2,18 @@
     "collab_server" : "",
     "contents" : "",
     "created" : 1552097295364.000,
-    "dirty" : false,
+    "dirty" : true,
     "encoding" : "UTF-8",
     "folds" : "",
     "hash" : "0",
     "id" : "676D4DA9",
     "lastKnownWriteTime" : 1552104565,
-    "last_content_update" : 1552104565,
+    "last_content_update" : 1552106520712,
     "path" : "~/Desktop/GitHub/CSE487/twitter.R",
     "project_path" : "twitter.R",
     "properties" : {
-        "cursorPosition" : "56,0",
-        "scrollLine" : "31"
+        "cursorPosition" : "86,0",
+        "scrollLine" : "72"
     },
     "relative_order" : 1,
     "source_on_save" : false,
